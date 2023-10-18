@@ -1,5 +1,3 @@
-# Pratik Chaudhari (pratikac@seas.upenn.edu)
-
 import pickle
 from scipy import io
 import numpy as np
