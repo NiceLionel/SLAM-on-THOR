@@ -1,5 +1,3 @@
-# Pratik Chaudhari (pratikac@seas.upenn.edu)
-
 import os, sys, pickle, math
 from copy import deepcopy
 
@@ -133,7 +131,6 @@ class slam_t:
         particles with w = 1 x n array of weights and returns new particle
         locations (number of particles n remains the same) and their weights
         """
-        #### TODO: XXXXXXXXXXX
         num_particles = w.shape[0]
         p_new_loc = np.zeros(p.shape)
         w_cumsum = np.cumsum(w) / np.sum(w)
@@ -157,7 +154,6 @@ class slam_t:
         Return an array 2 x num_rays which are the (x,y) locations of the end point of each ray
         in world coordinates
         """
-        #### TODO: XXXXXXXXXXX
         ray_num = angles.shape[0]
         world_coord = np.zeros((2,ray_num))
         # make sure each distance >= dmin and <= dmax, otherwise something is wrong in reading
@@ -191,7 +187,6 @@ class slam_t:
         if t == 0:
             return np.zeros(3)
 
-        #### TODO: XXXXXXXXXXX
         else:
             # relative movement in local frame (odom is in global frame)
             pose1 = s.lidar[t]['xyth']
@@ -205,7 +200,6 @@ class slam_t:
         """"
         Compute the control using get_control and perform that control on each particle to get the updated locations of the particles in the particle filter, remember to add noise using the smart_plus_2d function to each particle
         """
-        #### TODO: XXXXXXXXXXX
         control1 = s.get_control(t)
         control = deepcopy(control1)
         num_particles = s.n
@@ -224,7 +218,6 @@ class slam_t:
         Given the observation log-probability and the weights of particles w, calculate the
         new weights as discussed in the writeup. Make sure that the new weights are normalized
         """
-        #### TODO: XXXXXXXXXXX
         w = w * np.exp(obs_logp.reshape(w.shape[0],))
         weights = w / w.sum()
         return weights
@@ -245,7 +238,6 @@ class slam_t:
             3. Find the particle with the largest weight, and use its occupied cells to update the map.log_odds and map.cells.
         You should ensure that map.cells is recalculated at each iteration (it is simply the binarized version of log_odds). map.log_odds is of course maintained across iterations.
         """
-        #### TODO: XXXXXXXXXXX
         num_particles = s.n
         head_angle = s.joint["head_angles"][joint_name_to_index["Head"],s.find_joint_t_idx_from_lidar(s.lidar[t]["t"])]
         neck_angle = s.joint["head_angles"][joint_name_to_index["Neck"],s.find_joint_t_idx_from_lidar(s.lidar[t]["t"])]
