@@ -115,7 +115,6 @@ def run_slam(src_dir, log_dir, idx, split):
     # future steps, this time we want to be more careful and initialize with the
     # correct lidar scan. First find the time t0 around which we have both LiDAR
     # data and joint data
-    #### TODO: XXXXXXXXXXX
     # determine if lidar or joint data is recorded first
     if(slam.lidar[0]["t"] < slam.joint["t"][0]): 
         for i in range(T): # start with the joint data
@@ -130,7 +129,6 @@ def run_slam(src_dir, log_dir, idx, split):
 
     # initialize the occupancy grid using one particle and calling the observation_step
     # function
-    #### TODO: XXXXXXXXXXX
     xyth = slam.lidar[t_0]['xyth']
     xyth[2] = slam.lidar[t_0]['rpy'][2]
     logging.debug('> Initialize the occupancy grid with 1 particle: {}'.format(xyth))
@@ -141,7 +139,6 @@ def run_slam(src_dir, log_dir, idx, split):
     logging.info('> The occupancy grid has been initializd by Particles : {}'.format(slam.p.reshape(3,)))
 
     # slam, save data to be plotted later
-    #### TODO: XXXXXXXXXXX
 
     n = 100
     w = np.ones(n)/float(n)
