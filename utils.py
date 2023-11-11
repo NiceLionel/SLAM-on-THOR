@@ -1,5 +1,3 @@
-# Pratik Chaudhari (pratikac@seas.upenn.edu)
-
 import numpy as np
 
 cos, sin = np.cos, np.sin
